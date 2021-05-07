@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVC_Project.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,12 @@ namespace MVC_Project.Controllers
 {
     public class HomeController : Controller
     {
+        //Using unity block to inject dependent objects (dependeny injection)
+        IEmployee employee;
+        public HomeController(IEmployee _employee)
+        {
+            employee = _employee;
+        }
         public ActionResult Index()
         {
             return View();
@@ -25,6 +32,10 @@ namespace MVC_Project.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        public string UseUnityToGetEmployeeName()
+        {
+            return employee.GetEmployeeName();
         }
     }
 }
