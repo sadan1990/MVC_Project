@@ -37,5 +37,12 @@ namespace MVC_Project.Controllers
         {
             return employee.GetEmployeeName();
         }
+
+        //https://localhost:44353/home/GetNameViaWCFService
+        public string GetNameViaWCFService()
+        {
+            EmployeeServiceReference.EmployeeServiceClient employeeServiceClient = new EmployeeServiceReference.EmployeeServiceClient();
+            return employeeServiceClient.GetName();
+        }
     }
 }
