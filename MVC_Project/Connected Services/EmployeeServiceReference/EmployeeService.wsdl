@@ -12,10 +12,22 @@
   <wsdl:message name="IEmployeeService_GetName_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetNameResponse" />
   </wsdl:message>
+  <wsdl:message name="IEmployee1Service_New_GetNewName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewName" />
+  </wsdl:message>
+  <wsdl:message name="IEmployee1Service_New_GetNewName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewNameResponse" />
+  </wsdl:message>
   <wsdl:portType name="IEmployeeService">
     <wsdl:operation name="GetName">
       <wsdl:input wsaw:Action="http://tempuri.org/IEmployeeService/GetName" message="tns:IEmployeeService_GetName_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IEmployeeService/GetNameResponse" message="tns:IEmployeeService_GetName_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IEmployee1Service_New">
+    <wsdl:operation name="GetNewName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmployee1Service_New/GetNewName" message="tns:IEmployee1Service_New_GetNewName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmployee1Service_New/GetNewNameResponse" message="tns:IEmployee1Service_New_GetNewName_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IEmployeeService" type="tns:IEmployeeService">
@@ -30,8 +42,23 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IEmployee1Service_New" type="tns:IEmployee1Service_New">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNewName">
+      <soap:operation soapAction="http://tempuri.org/IEmployee1Service_New/GetNewName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="EmployeeService">
     <wsdl:port name="BasicHttpBinding_IEmployeeService" binding="tns:BasicHttpBinding_IEmployeeService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/WCF_Service/EmployeeService/EmployeeService" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IEmployee1Service_New" binding="tns:BasicHttpBinding_IEmployee1Service_New">
       <soap:address location="http://localhost:8733/Design_Time_Addresses/WCF_Service/EmployeeService/EmployeeService" />
     </wsdl:port>
   </wsdl:service>

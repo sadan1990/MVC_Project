@@ -41,8 +41,13 @@ namespace MVC_Project.Controllers
         //https://localhost:44353/home/GetNameViaWCFService
         public string GetNameViaWCFService()
         {
+            string name = "";
             EmployeeServiceReference.EmployeeServiceClient employeeServiceClient = new EmployeeServiceReference.EmployeeServiceClient();
-            return employeeServiceClient.GetName();
+            name= employeeServiceClient.GetName();
+
+            EmployeeServiceReference.Employee1Service_NewClient employeeServiceNewClient = new EmployeeServiceReference.Employee1Service_NewClient();
+            name+= employeeServiceNewClient.GetNewName();
+            return name;
         }
     }
 }

@@ -43,7 +43,7 @@ namespace MVC_Project
             // container.LoadConfiguration();
 
             // TODO: Register your type's mappings here.
-             container.RegisterType<IEmployee, Employee>();
+             //container.RegisterType<IEmployee, Employee>();
         }
     }
 }

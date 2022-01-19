@@ -57,4 +57,51 @@ namespace MVC_Project.EmployeeServiceReference {
             return base.Channel.GetNameAsync();
         }
     }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="EmployeeServiceReference.IEmployee1Service_New")]
+    public interface IEmployee1Service_New {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployee1Service_New/GetNewName", ReplyAction="http://tempuri.org/IEmployee1Service_New/GetNewNameResponse")]
+        string GetNewName();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployee1Service_New/GetNewName", ReplyAction="http://tempuri.org/IEmployee1Service_New/GetNewNameResponse")]
+        System.Threading.Tasks.Task<string> GetNewNameAsync();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IEmployee1Service_NewChannel : MVC_Project.EmployeeServiceReference.IEmployee1Service_New, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class Employee1Service_NewClient : System.ServiceModel.ClientBase<MVC_Project.EmployeeServiceReference.IEmployee1Service_New>, MVC_Project.EmployeeServiceReference.IEmployee1Service_New {
+        
+        public Employee1Service_NewClient() {
+        }
+        
+        public Employee1Service_NewClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public Employee1Service_NewClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public Employee1Service_NewClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public Employee1Service_NewClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public string GetNewName() {
+            return base.Channel.GetNewName();
+        }
+        
+        public System.Threading.Tasks.Task<string> GetNewNameAsync() {
+            return base.Channel.GetNewNameAsync();
+        }
+    }
 }

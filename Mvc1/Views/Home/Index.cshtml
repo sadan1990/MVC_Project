@@ -1,0 +1,29 @@
+﻿@model Mvc1.Models.UserEmployee
+@{
+    ViewBag.Title = "Home Page";
+}
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    @using (Html.BeginForm("SubmitIndex", "Home",FormMethod.Post,new { enctype= "multipart/form-data" }))
+    {
+        @Html.HiddenFor(m => m.Name, new { Value = "sadankumar" })
+        //sending alist through model binding
+        @Html.HiddenFor(m => m.codes[0], new { Value = "sadan" })
+        @Html.HiddenFor(m => m.codes[1], new { Value = "sadanroy" })
+        @Html.TextBox("Name", Model.Name)
+        <span>Select File:</span>
+        <input type="file" name="postedFile" />
+        <button type="submit">Post Data</button>
+    }
+</div>
+
+<script>
+    $(document).ready(function () {
+        debugger;
+        var data = @Html.Raw(Json.Encode(Model.codes));
+
+    })
+
+</script>
+
