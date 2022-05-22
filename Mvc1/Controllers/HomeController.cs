@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ExcelDataReader;
+using System.IO;
+using System.Data;
 
 namespace Mvc1.Controllers
 {
@@ -37,6 +40,16 @@ namespace Mvc1.Controllers
                 byte[] fileBytes = new byte[file.ContentLength];
                 var data = file.InputStream.Read(fileBytes, 0, Convert.ToInt32(file.ContentLength));
                 var usersList = new List<UserEmployee>();
+                //using (var stream = new FileStream(@"C:\Users\sadan\ProjectStuff\Demo.xlsx", FileMode.Open,FileAccess.Read,FileShare.ReadWrite))
+                //{
+                IExcelDataReader reader = null;
+                reader = ExcelReaderFactory.CreateOpenXmlReader(file.InputStream);
+                //DataSet dataSet= reader.
+                //var ds= reader.AsDataSet(new ExcelDataSetConfiguration()
+                //{
+
+                //})
+                //}
                 //using (var package = new ExcelPackage(file.InputStream))
                 //{
                 //    var currentSheet = package.Workbook.Worksheets;
